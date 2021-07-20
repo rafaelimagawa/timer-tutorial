@@ -1,4 +1,12 @@
+import styled from "styled-components"
 import { useEffect, useRef, useState } from "react"
+
+const Display = styled.div`
+    width: 100%;
+    text-align: center;
+    font-size: 3rem;
+    height: 80%;
+`
 
 const Countdown = () => {
     const [value, setValue] = useState(0)
@@ -37,9 +45,9 @@ const Countdown = () => {
                     <button onClick={()=>resetValue(true)}>Reset</button>
                 </div>
             }
-            <div>
+            <Display>
                 {value}
-            </div>
+            </Display>
         </div>
     )
 }

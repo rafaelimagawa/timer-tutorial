@@ -9,6 +9,8 @@ const Display = styled.div`
     text-align: center;
     font-size: 4rem;
     height: 80%;
+    color: white;
+    font-family: monospace;
 `
 const Controls = styled.div`
     display: grid;

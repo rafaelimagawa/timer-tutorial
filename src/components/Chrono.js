@@ -10,6 +10,8 @@ const Display = styled.div`
     text-align: center;
     font-size: 15vw;
     height: 80%;
+    color: white;
+    font-family: monospace;
 `
 const Controls = styled.div`
     display: grid;
@@ -58,10 +60,7 @@ const Chrono = () => {
     return (
         <div>
             <Display>
-                {`${hrs.toString().padStart(2, '0')}:
-                ${mins.toString().padStart(2, '0')}:
-                ${secs.toString().padStart(2, '0')}.
-                ${msecs.toString()}`}
+                {`${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}.${msecs.toString()}`}
             </Display>
             
             {!active ? 

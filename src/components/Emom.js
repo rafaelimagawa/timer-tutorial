@@ -9,6 +9,8 @@ const Display = styled.div`
     text-align: center;
     font-size: 4rem;
     height: 80%;
+    color: white;
+    font-family: monospace;
 `
 const Controls = styled.div`
     display: grid;
@@ -89,10 +91,7 @@ const Emom = () => {
             
             <Display>
                 <p>{rounds + 1}</p>
-                {`${hrs.toString().padStart(2, '0')}:
-                ${mins.toString().padStart(2, '0')}:
-                ${secs.toString().padStart(2, '0')}.
-                ${msecs.toString()}`}
+                {`${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}.${msecs.toString()}`}
             </Display>
             {!active ? 
                 <Controls>

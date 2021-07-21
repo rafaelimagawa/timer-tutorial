@@ -9,6 +9,8 @@ const Display = styled.div`
     text-align: center;
     font-size: 5rem;
     height: 80%;
+    color: white;
+    font-family: monospace;
 `
 const Controls = styled.div`
     display: grid;
@@ -17,7 +19,7 @@ const Controls = styled.div`
 `
 const Input = styled.input`
     background-color: transparent;
-    width: 5rem;
+    width: 6rem;
     justify-content: right;
     border: none;
     color: black;
@@ -28,7 +30,7 @@ const Form = styled.form`
     font-size: 4rem;
     text-align: center
 `
-const Teste = () => {
+const Timer = () => {
     const [[hrs, mins, secs], setTime] = useState([0, 0, 0])
     const [active, setActive] = useState(false)
     const [hrInsert, setHrInsert] = useState(0) 
@@ -70,8 +72,8 @@ const Teste = () => {
         <div>
             <Form>
                 <Input list="hour" name="hour" onChange={e=>setHrInsert(e.target.value)} min="0" placeholder="00" /><span>:</span>
-                <input list="min-sec" name="min" onChange={e=>setMinInsert(e.target.value)} max="60" min="0" placeholder="00"/><span>:</span>
-                <input list="min-sec" name="sec" onChange={e=>setSecInsert(e.target.value)} max="60" min="0" placeholder="00"/>
+                <Input list="min-sec" name="min" onChange={e=>setMinInsert(e.target.value)} max="60" min="0" placeholder="00"/><span>:</span>
+                <Input list="min-sec" name="sec" onChange={e=>setSecInsert(e.target.value)} max="60" min="0" placeholder="00"/>
                 <button onClick={handleSubmit}>Ok</button>
                 <datalist id="hour">
                     <option value="00" />
@@ -185,4 +187,4 @@ const Teste = () => {
     )
 }
 
-export default Teste
+export default Timer

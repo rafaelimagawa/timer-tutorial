@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 const Btn = styled.button`
-    background-color: white;
+    background-color: transparent;
     font-size: 1.5rem;
     border: solid 2px green;
     width: 90%;
@@ -25,7 +25,7 @@ const Btn = styled.button`
 const StartBtn = (props) => {
     return (
         <Btn onClick={props.click}>
-            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd">
                 <path d="M3 22v-20l18 10-18 10z"/>
             </svg>
         </Btn>

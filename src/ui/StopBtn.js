@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 const Btn = styled.button`
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: transparent;
     font-size: 1.5rem;
     border: solid 2px red;
     width: 90%;

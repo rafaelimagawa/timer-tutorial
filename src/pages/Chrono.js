@@ -9,14 +9,37 @@ const Display = styled.div`
     width: 100%;
     text-align: center;
     font-size: 15vw;
-    height: 80%;
+    height: 10vh;
     color: white;
+    margin: auto;
     font-family: monospace;
 `
 const Controls = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     flex-direction: row;
+`
+const Laps = styled.div`
+    margin: 15px;
+    width: 90%;
+    padding-left: 2rem;
+    height: 60vh;
+    color: white;
+    font-family: monospace;
+    font-size: 1.5rem;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+        width: 15px;
+    }
+    &::-webkit-scrollbar-track {
+        background: var(--black)
+    }
+    &::-webkit-scrollbar-thumb {
+        background: var(--main-color);
+    }
+    &::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
 `
 const Chrono = () => {
     const [[hrs, mins, secs, msecs], setTime] = useState([0, 0, 0, 0])
@@ -55,14 +78,34 @@ const Chrono = () => {
         setLap([...lap, timeString])
     }
 
-    const laps = lap.map((data) => <li>{data}</li>)
+    const laps = lap.map((data) => <li key={data}>{data}</li>)
+    // const LapDif = () => {
+    //     let LapDetail
+    //     if(lap.length<2) {
+    //         LapDetail.push(lap[0])
+    //     }
+    //     for (let item in lap.length) {
+    //         LapDetail.push(lap[item] + " Δ"+ (lap[item-1])
+    //     }
+    // }
+
+    let TempoDisplay
+    if(mins===0) {
+        TempoDisplay = (<Display>{`${secs.toString().padStart(2, '0')}.${msecs.toString()}`}</Display>)
+    } else if (hrs===0) {
+        TempoDisplay = (<Display>{`${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}.${msecs.toString()}`}</Display>)
+    } else {
+        TempoDisplay = (<Display>{`${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}.${msecs.toString()}`}</Display>)
+    }
 
     return (
         <div>
-            <Display>
-                {`${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}.${msecs.toString()}`}
-            </Display>
-            
+            {TempoDisplay}
+            <Laps>
+                <ol>
+                    {laps}
+                </ol> 
+            </Laps>
             {!active ? 
                 <Controls>
                     <StartBtn click={()=>setActive(true)}>Start</StartBtn>
@@ -75,11 +118,6 @@ const Chrono = () => {
                     <LapBtn click={()=>addLap()}>Lap</LapBtn>
                 </Controls>
             }
-            <div>
-                <ol>
-                    {laps}
-                </ol> 
-            </div>
         </div>
     )
 }

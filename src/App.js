@@ -4,26 +4,30 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import Chrono from "./components/Chrono";
-import Select from "./components/Select";
+import Chrono from "./pages/Chrono";
+import Select from "./pages/Select";
 import Nav from "./ui/Nav";
+import Logo from "./ui/Logo";
+
 // import Emom from "./components/Emom";
 // import Interval from "./components/Interval";
 // import Teste from "./components/Testes";
-const Timer = React.lazy(() => import("./components/Timer"))
-const Interval = React.lazy(() => import("./components/Interval"))
-const Emom = React.lazy(() => import('./components/Emom'))
+const Timer = React.lazy(() => import("./pages/Timer"))
+const Interval = React.lazy(() => import("./pages/Interval"))
+const Emom = React.lazy(() => import('./pages/Emom'))
 
 const Main = styled.div`
   background-color: var(--black);
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   margin: 0;
+  overflow-x: hidden;
 `
  
 function App() {
   return (
     <Main>
+      <Logo />
       <Nav />
       <Suspense fallback={
         <div>Loading</div>

@@ -5,7 +5,6 @@ import StartBtn from "../ui/StartBtn"
 import StopBtn from "../ui/StopBtn"
 import useSound from 'use-sound'
 import bell from '../sounds/boxing-bell.mp3'
-import Modal from "../components/Modal"
 
 const Display = styled.div`
     width: 100%;
@@ -135,7 +134,6 @@ const Timer = () => {
 
     return (
         <div>
-            <Modal />
             <Form onBlur={handleSubmit}>
                 <label>Time</label>
                 <Input type="number" name="hour" onChange={e=>setHrInsert(e.target.value)} min="0" placeholder="00" max="59"/><span>:</span>
